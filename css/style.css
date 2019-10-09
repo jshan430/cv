@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css?family=Kaushan+Script");
+
+:root {
+  --mainPink: #ef7998;
+  --mainYellow: rgb(249, 228, 148);
+  --mainWhite: #fff;
+  --mainBlack: #000;
+  --yellowTrans: rgba(249, 228, 148, 0.5);
+  --mainGrey: rgb(238, 238, 238);
+}
+
+body {
+  font-family: "Kaushan Script", cursive;
+  background: var(--mainWhite);
+  color: var(--mainBlack);
+}
+/*global-style*/
+.btn-pink{
+    color: var(--mainPink);
+    border-color: var(--mainPink)!important;
+}
+.btn-black{
+    color: var(--mainBlack);
+    border-color: var(--mainBlack)!important;
+}
+.btn-black:hover{
+    color: var(--mainPink) !important;
+    background: var(--mainBlack) !important;
+}
+.btn-pink:hover{
+    color: var(--mainBlack) !important;
+    background: var(--mainPink) !important;
+}
+/* nav links */
+.navbar-toggler{
+    /** the !important flag is used to remove bootstraps styling */
+    outline: none !important;
+}
+
+.toggler-icon{
+    /* rem is preferred when using bootstrap */
+    /* rem are responsive unlike pixel */
+    font-size: 2.5rem;
+    color: var(--mainPink);
+}
+.nav-link{
+    color: var(--mainPink);
+    /* transition takes 3 arguments */
+    transition: all .66s ease-in-out;
+    font-size: 1.5rem;
+}
+.nav-link:hover{
+    /* hovering will be regulated by the transition */
+    color: var(--mainBlack);
+}
+/* cart styles */
+.cart-info__icon{
+    color: var(--mainBlack);
+    cursor: pointer;
+}
+.cart-info{
+    border: 0.1rem solid var(--mainBlack);
+    color: var(--mainBlack);
+    border-radius: .25rem;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    
+}
+.cart-info:hover{
+    background: var(--mainPink); 
+    border-color: var(--mainPink);
+    color: var(--mainWhite);    
+}
+.cart-info:hover cart-info__icon{
+    color: var(--mainWhite);
+}
+/* targeting the shopping cart icon when hovering */
+.cart-info:hover .cart-info__icon{
+    color: var(--mainWhite);
+}
+
+/* banner */
+.max-height{
+    /* regardless of screen-size make it this screen size */
+    /* demo of calc function */
+    /* 76 is from the combine height of navbar */
+    min-height: calc(100vh - 76px);
+    /* yello gradient */
+    background: linear-gradient(var(--yellowTrans), var(--yellowTrans)), url(../img/headerBcg.jpeg);
+    background-position: center;
+    background-size: cover;
+    /* paralax effect */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    /* this position relative is needed when we add in the shopping cart because that will have a position: absolute */
+    position: relative;
+}
+.banner{
+    color: var(--mainWhite);
+    margin-top: -4rem;
+}
+.banner-title{
+    color: var(--mainPink);
+    font-size: 4rem;
+}
+.banner-link{
+    font-size: 1.5rem;
+    color: var(--mainBlack);
+    border: 0.2rem solid var(--mainBlack);
+}
+.banner-link:hover {
+    background: var(--mainWhite);
+    color: var(--mainPink);
+}
+
+/* about section */
+.about-img__container {
+    position: relative;
+}
+/*intro to psuedo selection*/
+.about-img__container::before {
+/*    always need content*/
+    content: "";
+    position: absolute;
+    top: -1.5rem;
+    left: -1.7rem;
+    width: 100%;
+    height: 100%;
+    outline: 0.5rem solid var(--mainYellow);
+    z-index: -1;
+    transition: all 1s linear;
+}
+.about-img__container:hover:before {
+    top: 0; 
+    left: 0;
+}
+/* store */
+.store{
+    background: var(--mainGrey);
+}
+.search-box{
+    background: var(--mainPink);
+    color: var(--mainBlack);
+}
+.single-item{
+    transition: all 0.3 linear;
+}
+.single-item:hover{
+    /* When hovering we will have a box shadow */
+    box-shadow: 0 10px 15px rgb(0,0,0);
+}
+.img-container{
+    /* using container has a parent reference for children */
+    position: relative;
+    /* overflow: hidden will not let then transform go beyond its border */
+    overflow: hidden;
+    cursor: pointer;
+}
+.store-img{
+    transition: all 1s ease-in-out;
+}
+.img-container:hover .store-img{
+    /* demonstration of a zoom in effect when hovering store-img specifically */
+    transform: scale(1.2);
+}
+.store-item-icon{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.75rem;
+    background: var(--mainYellow);
+    border-top-left-radius: 1rem;
+    transition: all 1s ease-in-out;
+    /* the following line essentially hides the icon to location */
+    transform: translate(100%, 100%);
+}
+.img-container:hover .store-item-icon{
+    /* unhide the icon when overing over img-container */
+    transform: translate(0,0);
+}
+.store-item-icon:hover{
+    color: var(--mainWhite);
+}
+/* services section */
+.services{
+    color: var(--mainWhite);
+    /* center/cover is used instead of background position */
+    /* comma is need after the linear-gradient */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/servicesBcg.jpeg') center/cover fixed no-repeat;
+}
+.service-title{
+    letter-spacing: 0.5rem;
+}
+.service-text{
+    word-spacing: 0.5rem;
+}
+/*footer*/
+.footer-title{
+    background: var(--mainBlack);
+}
+.footer-contact{
+    background: var(--mainGrey);
+}
+.footer-icon{
+    font-size: 1.5rem;
+    color: var(--mainYellow);
+    transition: all 0.4 ease-in-out;
+    
+}
+.footer-icon:hover{
+    color: var(--mainPink);   
+}
+/* cart */
+.cart {
+    position: absolute;
+    min-height: 10rem;
+    background: rgba(255,255,255,0.5);
+    top: 0;
+    right: 0;
+    transition: all 0.3 ease-in-out;
+    width: 0;
+    overflow: hidden;
+}
+.show-cart{
+    width: 18rem;
+    padding: 2rem 1.5rem;
+    transform: rotateY(-360deg);
+}
+.cart-item-remove{
+    color: var(--mainPink);
+    transition: all 1s ease-in-out;
+}
+.cart-item{
+    transition: all 2s ease-in-out;
+}
+.cart-item-remove:hover{
+    transform: scale(1.1);
+    color: var(--mainBlack);
+}
+.cart-item-price{
+    font-size: 0.8rem;
+}
